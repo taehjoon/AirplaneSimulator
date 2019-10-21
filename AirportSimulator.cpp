@@ -431,7 +431,7 @@ int main() {
 	int countLPs=0;
 	int countTPs=0;
 	generateInputData(flyList, waitList, generate, num);
-	//루프시작
+	//start loop
 	
 	while (localTime <= 100) {
 		int time1 = clock();
@@ -455,7 +455,7 @@ int main() {
 		localTime++;
 		
 		for (int i = 0; i < sizeofLQ; i++)
-			for (int j = 0; j <= LQ[i].getTop(); j++)	//모든큐의연료감소...
+			for (int j = 0; j <= LQ[i].getTop(); j++) // decresing fuel time.
 				LQ[i].setElement(j, { LQ[i].getElement(j).arrivalTime,LQ[i].getElement(j).IDofLandingPlane 
 					,LQ[i].getElement(j).remainingFlyingTime - 1 });
 	
@@ -471,22 +471,5 @@ int main() {
 	for (int i = 0; i < k3; i++)
 		cout << runways[2][i] << endl;
 		
-	//runway이용...
-	//1. landing하는 놈 연료 확인..
-	//2. 대기중인 waittime확인 
-	//3. log
-	//exception + RW쓰는거 신경써줘야댐...(사용시간 지난후에 사용가능..)
-	/*for (int i = 0; i < sizeofLQ; i++)
-		for (int j = 0; j <= LQ[i].getTop(); j++)
-			cout << LQ[i].getElement(j)<<" ";
-
-	cout << "---------------------";
-	cout<<LQtoRW(LQ);
-
-	cout << "---------------";
-	for (int i = 0; i < sizeofLQ; i++)
-		for (int j = 0; j <= LQ[i].getTop(); j++)
-			cout << LQ[i].getElement(j) << " ";
-	*/
 	return 0;
 }
