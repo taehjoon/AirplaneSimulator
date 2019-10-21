@@ -198,7 +198,7 @@ int findPriority(Queue<LandingPlane> landingQueue) {
 }
 //valid value is 0~2...
 int* findTQPriority(Queue<TakeoffPlane>* takeoffQueue) {
-	int eachQueue[sizeofTQ];	//각 큐의 최소값의 index
+	int eachQueue[sizeofTQ];	//the index of min values of each Queue 
 	for (int i = 0; i < sizeofTQ; i++) {
 		eachQueue[i] = findPriority(takeoffQueue[i]);
 	}
@@ -233,7 +233,7 @@ int* findTQPriority(Queue<TakeoffPlane>* takeoffQueue) {
 	return result;
 }
 int* findLQPriority(Queue<LandingPlane>* landingQueue) {
-	int eachQueue[sizeofLQ];	//각 큐의 최소값의 index
+	int eachQueue[sizeofLQ];	//the index of min values of each Queue 
 	for (int i = 0; i < sizeofLQ; i++) {
 		eachQueue[i] = findPriority(landingQueue[i]);
 	}
@@ -299,19 +299,19 @@ LandingPlane LQtoRW(Queue<LandingPlane>* landingQueue) {
 	return result;
 }
 //move to RW
-void usingRW(UseRunway& runway, const TakeoffPlane& TP) {		//기록도 해줘야함 (현재 기록x)
+void usingRW(UseRunway& runway, const TakeoffPlane& TP) {	
 	runway.IDPlane = TP.IDofTakeoffPlane;
 	runway.start = localTime;
-	runway.end = localTime + 2;	///이륙하는데 2분걸리는걸로...r
+	runway.end = localTime + 2;	//takeoff time....
 	runway.takeoff_landing = false;
 	cout << TP.IDofTakeoffPlane << "is takeoff!"<<endl;
 	cout << "departure time : " << TP.takeoffTime << endl;
 	cout << "start time :" << runway.start << "   end time : " << runway.end << endl;
 }
-void usingRW(UseRunway& runway, const LandingPlane& LP) {		//기록도 해줘야함 (현재 기록x)
+void usingRW(UseRunway& runway, const LandingPlane& LP) {	
 	runway.IDPlane = LP.IDofLandingPlane;
 	runway.start = localTime;
-	runway.end = localTime + 2;	///착륙하는데 3분걸리는걸로...r
+	runway.end = localTime + 2;	///landing time...
 	runway.takeoff_landing = false;
 	cout << LP.IDofLandingPlane << "is land!" << endl;
 	cout << "left fuel time : " << LP.remainingFlyingTime << endl;
@@ -436,7 +436,7 @@ int main() {
 	while (localTime <= 100) {
 		int time1 = clock();
 		int time2 = clock();
-		while ((time2 - time1) <= 100) { time2 = clock(); }//0.1초씩
+		while ((time2 - time1) <= 100) { time2 = clock(); }//0.1sec
 		cout << "*================================*"<<endl;
 		cout << "Time is : " << localTime<<endl;
 		cout << "*================================*" << endl;

@@ -46,7 +46,7 @@ public:
 		storage[num] = setValue;
 	}
 private:
-	int top;	//저장할 큐의 남은 공간..
+	int top;	//number of volume of sotrage
 	int capacity;
 	T* storage;
 };
