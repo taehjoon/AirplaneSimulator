@@ -1,4 +1,5 @@
-#include "Queue.h"
+//#include "Queue.h"
+#include "newQueue.h"
 #define sizeofLQ 4
 #define sizeofTQ 3	//num of takeoffQueue
 #define numofRW 3	
@@ -460,7 +461,7 @@ int main() {
 					,LQ[i].getElement(j).remainingFlyingTime - 1 });
 	
 	}
-
+	cout << "runway 1: " << k1 << "  runway 2:" << k2 << "  runway 3: " << k3<<endl;
 	cout << "R1" << endl;
 	for (int i = 0; i < k1; i++)
 		cout << runways[0][i]<<endl;
